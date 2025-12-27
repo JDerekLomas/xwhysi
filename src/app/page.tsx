@@ -34,7 +34,7 @@ const VIDEOS = [
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/7ab098ce-0648-47ff-93bc-bda6cac9bc17/result_00.mp4", label: "Video 29" },
 ];
 
-const MARQUEE_TEXT = "XWHYSI • AMSTERDAM • EXPERIMENTAL • SONIC ARCHITECT • PITTSBURGH ROOTS • BREMEN BLOOD • CHAGRIN FALLS • ";
+const MARQUEE_TEXT = "XWHYSI • AMSTERDAM • EXPERIMENTAL • SONIC ARCHITECT • PITTSBURGH ROOTS • ";
 
 declare global {
   interface Window {
@@ -263,11 +263,11 @@ export default function Home() {
             {/* Bio text - staggered blocks */}
             <div className="space-y-12">
               <p className="text-2xl md:text-3xl font-extralight leading-relaxed text-zinc-300 ml-[5%] max-w-2xl">
-                Born in Pittsburgh. Mother from Bremen, father from Chagrin Falls.
+                Born in Pittsburgh. Now in Amsterdam.
               </p>
 
               <p className="text-xl md:text-2xl font-extralight leading-relaxed text-zinc-400 mr-[10%] ml-auto max-w-xl text-right">
-                Now in Amsterdam, creating sonic landscapes between organic and artificial.
+                Creating sonic landscapes between organic and artificial.
               </p>
 
               <p className="text-lg font-extralight leading-relaxed text-zinc-500 ml-[15%] max-w-md">
@@ -277,12 +277,8 @@ export default function Home() {
             </div>
 
             {/* Origin trail */}
-            <div className="mt-20 flex flex-wrap justify-between text-xs tracking-[0.3em] text-zinc-700 uppercase">
+            <div className="mt-20 flex flex-wrap justify-center gap-4 text-xs tracking-[0.3em] text-zinc-700 uppercase">
               <span className="glitch-hover">Pittsburgh PA</span>
-              <span className="text-violet-500">→</span>
-              <span className="glitch-hover">Bremen DE</span>
-              <span className="text-violet-500">→</span>
-              <span className="glitch-hover">Chagrin Falls OH</span>
               <span className="text-violet-500">→</span>
               <span className="glitch-hover text-zinc-400">Amsterdam NL</span>
             </div>

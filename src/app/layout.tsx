@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "XWHYSI",
-  description: "Experimental music from Amsterdam. Pittsburgh roots, German-American heritage. Sonic landscapes between the organic and the artificial.",
+  description: "Experimental music from Amsterdam. Pittsburgh roots. Sonic landscapes between the organic and the artificial.",
   keywords: ["music", "experimental", "electronic", "Amsterdam", "producer", "artist", "XWHYSI", "Milo Lomas"],
   authors: [{ name: "XWHYSI" }],
   openGraph: {

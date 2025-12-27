@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -15,12 +16,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Milo Lomas",
+  title: "XWHYSI",
   description: "Experimental music from Amsterdam. Pittsburgh roots, German-American heritage. Sonic landscapes between the organic and the artificial.",
-  keywords: ["music", "experimental", "electronic", "Amsterdam", "producer", "artist"],
-  authors: [{ name: "Milo Lomas" }],
+  keywords: ["music", "experimental", "electronic", "Amsterdam", "producer", "artist", "XWHYSI", "Milo Lomas"],
+  authors: [{ name: "XWHYSI" }],
   openGraph: {
-    title: "Milo Lomas",
+    title: "XWHYSI",
     description: "Experimental music from Amsterdam",
     type: "website",
   },
@@ -33,6 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://w.soundcloud.com/player/api.js"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased noise scanlines vhs-tracking`}
       >

@@ -36,6 +36,17 @@ const VIDEOS = [
 
 const MARQUEE_TEXT = "XWHYSI • AMSTERDAM • EXPERIMENTAL • SONIC ARCHITECT • PITTSBURGH ROOTS • BREMEN BLOOD • CHAGRIN FALLS • ";
 
+declare global {
+  interface Window {
+    SC?: {
+      Widget: (iframe: HTMLIFrameElement) => {
+        play: () => void;
+        bind: (event: string, callback: () => void) => void;
+      };
+    };
+  }
+}
+
 export default function Home() {
   const [currentVideo, setCurrentVideo] = useState(0);
   const [mounted, setMounted] = useState(false);
@@ -44,10 +55,12 @@ export default function Home() {
 
   const startMusic = () => {
     if (musicStarted) return;
+    setMusicStarted(true);
+
     const iframe = document.querySelector('iframe[src*="soundcloud"]') as HTMLIFrameElement;
-    if (iframe) {
-      iframe.contentWindow?.postMessage('{"method":"play"}', '*');
-      setMusicStarted(true);
+    if (iframe && window.SC) {
+      const widget = window.SC.Widget(iframe);
+      widget.play();
     }
   };
 
@@ -98,6 +111,7 @@ export default function Home() {
     <main
       className={`relative min-h-screen cursor-glow ${tripping ? 'tripping' : ''}`}
       onClick={startMusic}
+      onTouchStart={startMusic}
     >
       {/* Video Background */}
       <video

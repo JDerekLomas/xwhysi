@@ -52,6 +52,8 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [tripping, setTripping] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const startMusic = () => {
     if (musicStarted) return;
@@ -81,8 +83,12 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
+    // Detect mobile
+    setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+
     const interval = setInterval(() => {
       if (!tripping) {
+        setVideoLoaded(false);
         setCurrentVideo((prev) => (prev + 1) % VIDEOS.length);
       }
     }, 10000);
@@ -90,20 +96,33 @@ export default function Home() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight" || e.key === " ") {
         e.preventDefault();
+        setVideoLoaded(false);
         setCurrentVideo((prev) => (prev + 1) % VIDEOS.length);
         startMusic();
       } else if (e.key === "ArrowLeft") {
+        setVideoLoaded(false);
         setCurrentVideo((prev) => (prev - 1 + VIDEOS.length) % VIDEOS.length);
         startMusic();
       }
     };
+
+    // Preload next video
+    const preloadNext = () => {
+      const nextIndex = (currentVideo + 1) % VIDEOS.length;
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.href = VIDEOS[nextIndex].url;
+      link.as = "video";
+      document.head.appendChild(link);
+    };
+    preloadNext();
 
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       clearInterval(interval);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [tripping, musicStarted]);
+  }, [tripping, musicStarted, currentVideo]);
 
   if (!mounted) return null;
 
@@ -113,14 +132,31 @@ export default function Home() {
       onClick={startMusic}
       onTouchStart={startMusic}
     >
+      {/* Loading Placeholder */}
+      <div
+        className={`fixed inset-0 z-0 bg-gradient-to-br from-violet-950/50 via-black to-pink-950/30 transition-opacity duration-500 ${
+          videoLoaded ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-6xl md:text-8xl font-black text-white/10 animate-pulse">XWHYSI</div>
+        </div>
+      </div>
+
       {/* Video Background */}
       <video
         key={currentVideo}
-        className={`video-bg ${tripping ? 'tripping-video' : 'glitch-constant'}`}
+        className={`video-bg ${tripping ? 'tripping-video' : 'glitch-constant'} transition-opacity duration-300 ${
+          videoLoaded ? 'opacity-50' : 'opacity-0'
+        }`}
         autoPlay
         loop
         muted
         playsInline
+        preload={isMobile ? "metadata" : "auto"}
+        onCanPlay={() => setVideoLoaded(true)}
+        onLoadedData={() => setVideoLoaded(true)}
+        {...{ 'webkit-playsinline': 'true' } as React.VideoHTMLAttributes<HTMLVideoElement>}
       >
         <source src={VIDEOS[currentVideo].url} type="video/mp4" />
       </video>

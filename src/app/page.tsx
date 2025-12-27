@@ -3,21 +3,28 @@
 import { useState, useEffect } from "react";
 
 const VIDEOS = [
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/15b73dbd-72d0-44e0-a848-79ee0f64d0d3/result_00.mp4", label: "Snowflake Fractal Tunnel" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/b3213694-67b7-4ec6-b451-ed56008b92d0/result_00.mp4", label: "Abstract Organic Flow" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/9a79a8f2-2b2f-42f8-8012-c1054b13a4fe/result_00.mp4", label: "Digital Organism" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/260ee6fc-5634-4379-a9de-39ea03efb87a/result_00.mp4", label: "Glitch Landscape" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/36c09145-7fb9-4fdd-a50f-abaa66b4d255/result_00.mp4", label: "Neural Patterns" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/96fb0ed4-0ff9-484a-8e73-a07708f07e46/result_00.mp4", label: "Björk Inspired" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/1faff18c-9488-4521-bfd4-68353b4e7993/result_00.mp4", label: "Crystal Snowflake Tunnel" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/c6e1f9b4-613b-4a4c-8bbe-58018b976da2/result_00.mp4", label: "Sacred Geometry Wormhole" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/3cac19bb-5dba-4745-ac57-1c3f2309a0b4/result_00.mp4", label: "Fractal Crystal Corridor" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/f0a5539d-e20e-45e7-beb3-8a3d359e7a12/result_00.mp4", label: "Neon Wireframe Infinity" },
+  // 1. XWHYSI Chrome Logo
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/0d04cd56-55c8-47f4-b1b8-44bbe4564e25/result_00.mp4", label: "XWHYSI Chrome Logo" },
+  // 2-6. 3D Rendered Animals
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/90b724c4-f77b-4299-aafb-dafc8ec895e3/result_00.mp4", label: "Low-Poly Dogs Dancing" },
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/858936a6-2c83-44dd-9cd5-8ec1a36a7a39/result_00.mp4", label: "Pixelated Frogs Bouncing" },
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/5f4d67b1-1c3f-4c8c-b916-d921b4b0164b/result_00.mp4", label: "Untextured Horses" },
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/69218ac5-8e8b-4c9e-a08b-4e750903a763/result_00.mp4", label: "Spinning Dolphins" },
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/7b869cda-0eeb-46ca-81a1-5704d16a16e6/result_00.mp4", label: "Floating Cats Stretched" },
+  // 7-10. Snowflake Fractals
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/15b73dbd-72d0-44e0-a848-79ee0f64d0d3/result_00.mp4", label: "Snowflake Fractal Tunnel" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/1faff18c-9488-4521-bfd4-68353b4e7993/result_00.mp4", label: "Crystal Snowflake Tunnel" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/c6e1f9b4-613b-4a4c-8bbe-58018b976da2/result_00.mp4", label: "Sacred Geometry Wormhole" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/3cac19bb-5dba-4745-ac57-1c3f2309a0b4/result_00.mp4", label: "Fractal Crystal Corridor" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/f0a5539d-e20e-45e7-beb3-8a3d359e7a12/result_00.mp4", label: "Neon Wireframe Infinity" },
+  // Rest
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/711d9213-876e-49ab-9f00-4c14484c9537/result_00.mp4", label: "XWHYSI Liquid Mercury" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/45c731cf-ef48-4fc0-876e-c7056da35605/result_00.mp4", label: "XWHYSI Organic Flesh" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/b3213694-67b7-4ec6-b451-ed56008b92d0/result_00.mp4", label: "Abstract Organic Flow" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/9a79a8f2-2b2f-42f8-8012-c1054b13a4fe/result_00.mp4", label: "Digital Organism" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/260ee6fc-5634-4379-a9de-39ea03efb87a/result_00.mp4", label: "Glitch Landscape" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/36c09145-7fb9-4fdd-a50f-abaa66b4d255/result_00.mp4", label: "Neural Patterns" },
+  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/96fb0ed4-0ff9-484a-8e73-a07708f07e46/result_00.mp4", label: "Björk Inspired" },
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/98df860d-7130-4b8f-b174-b8b39793abad/result_00.mp4", label: "Faceless Foggy Street" },
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/fb160d6f-5734-4ae3-a049-78d104a5f2ec/result_00.mp4", label: "Stoned Mall POV" },
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/bea513f0-e85c-4c6d-8030-05e2cba47096/result_00.mp4", label: "Subway Silhouettes" },
@@ -29,9 +36,6 @@ const VIDEOS = [
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/77076ba3-46c1-4401-a0a6-a4f2088786a8/result_00.mp4", label: "N64 Room Morph" },
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/bf4cd2b8-53a7-4a19-bd77-e3d74c57f621/result_00.mp4", label: "PS1 Racing Morph" },
   { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/7ab098ce-0648-47ff-93bc-bda6cac9bc17/result_00.mp4", label: "Polygon Face Morph" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/0d04cd56-55c8-47f4-b1b8-44bbe4564e25/result_00.mp4", label: "XWHYSI Chrome Logo" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/711d9213-876e-49ab-9f00-4c14484c9537/result_00.mp4", label: "XWHYSI Liquid Mercury" },
-  { url: "https://mule-router-assets.muleusercontent.com/router_public/production/ephemeral/45c731cf-ef48-4fc0-876e-c7056da35605/result_00.mp4", label: "XWHYSI Organic Flesh" },
 ];
 
 const MARQUEE_TEXT = "XWHYSI • AMSTERDAM • EXPERIMENTAL • SONIC ARCHITECT • PITTSBURGH ROOTS • BREMEN BLOOD • CHAGRIN FALLS • ";
@@ -114,7 +118,15 @@ export default function Home() {
               <span className="glitch-hover">Experimental</span>
             </div>
 
-            <nav className="fade-in fade-in-delay-2 flex flex-wrap justify-center gap-8 text-lg">
+            {/* Big Play Button */}
+            <a
+              href="#listen"
+              className="fade-in fade-in-delay-2 inline-flex items-center gap-3 px-10 py-5 mb-8 bg-violet-600/80 hover:bg-violet-500 rounded-full text-2xl font-bold tracking-wider transition-all hover:scale-105 pulse-glow"
+            >
+              ▶ PLAY MUSIC
+            </a>
+
+            <nav className="fade-in fade-in-delay-3 flex flex-wrap justify-center gap-8 text-lg">
               <a href="#listen" className="glitch-hover hover:text-white transition-colors float" style={{animationDelay: '0s'}}>
                 ↓ Listen
               </a>

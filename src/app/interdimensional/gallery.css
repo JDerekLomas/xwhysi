@@ -1,0 +1,189 @@
+/* Interdimensional Gallery - Custom Styles */
+
+/* Fade-in Animation for Cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Scanlines Animation */
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 8px;
+  }
+}
+
+.animate-scanlines {
+  animation: scanlines 0.15s linear infinite;
+  background-size: 100% 8px;
+}
+
+/* Glitch Effect for Text */
+@keyframes glitch-text {
+  0% {
+    text-shadow: -2px 0 #ff006d, 2px 2px #00ffff;
+    transform: translate(0);
+  }
+  20% {
+    text-shadow: -2px -2px #ff006d, 2px 0 #00ffff;
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    text-shadow: -2px 0 #ff006d, 2px 2px #00ffff;
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    text-shadow: 2px 2px #ff006d, -2px 0 #00ffff;
+    transform: translate(2px, 2px);
+  }
+  80% {
+    text-shadow: -2px 2px #ff006d, 2px 0 #00ffff;
+    transform: translate(2px, -2px);
+  }
+  100% {
+    text-shadow: -2px 0 #ff006d, 2px 2px #00ffff;
+    transform: translate(0);
+  }
+}
+
+.glitch-hover {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.glitch-hover:hover {
+  animation: glitch-text 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  color: #8b5cf6;
+}
+
+/* Card Hover Glow */
+@keyframes card-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+  }
+}
+
+.group:hover {
+  animation: card-glow 2s ease-in-out infinite;
+}
+
+/* Ethereal Shimmer Effect */
+@keyframes ethereal-shimmer {
+  0% {
+    opacity: 0.5;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateX(100%);
+  }
+}
+
+.ethereal-shimmer {
+  animation: ethereal-shimmer 3s ease-in-out infinite;
+}
+
+/* Portal Opening Animation */
+@keyframes portal-open {
+  0% {
+    clip-path: inset(45% 45% 45% 45%);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0%);
+    opacity: 1;
+  }
+}
+
+.portal-open {
+  animation: portal-open 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Pulse Glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Modal Fade In */
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  animation: modal-fade-in 0.3s ease-out;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Section Dot */
+.section-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: #8b5cf6;
+  border-radius: 50%;
+  margin: 0 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .glitch-hover {
+    text-shadow: none !important;
+  }
+
+  .group:hover {
+    animation: none;
+  }
+}

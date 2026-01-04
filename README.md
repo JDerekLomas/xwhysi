@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# XWHYSI
 
-## Getting Started
+Experimental electronic music portfolio for **Milo Lomas** (XWHYSI).
 
-First, run the development server:
+**Live site:** [xwhysi.com](https://xwhysi.com)
+
+## About
+
+XWHYSI creates sonic landscapes between organic and artificial. Based in Amsterdam, influenced by the uncanny valleys of Aphex Twin and the nature-technology fusion of Bjork.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS v4
+- **Deployment:** Vercel
+- **Video Generation:** MuleRouter API (Alibaba Wan 2.6)
+
+## Features
+
+- 30 looping AI-generated video backgrounds
+- Psychedelic visual effects (glitch, RGB split, warp)
+- "Space Out" trippy mode with rapid video switching
+- SoundCloud integration with auto-play
+- Keyboard navigation (arrow keys, spacebar)
+- Mobile-responsive design
+
+## Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Video Generation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Videos are generated using the MuleRouter API with prompts inspired by:
+- Organic technology aesthetics
+- Bjork's nature-machine fusion
+- Aphex Twin's uncanny valley visuals
+- Alex Grey's psychedelic art
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See `/milo/video-gen/` for the generation scripts and prompts.
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+xwhysi/
+├── src/app/
+│   ├── page.tsx      # Main site component
+│   ├── layout.tsx    # Root layout
+│   └── globals.css   # Styles + effects
+├── public/
+│   └── videos/       # 30 looping video backgrounds
+└── package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Connect
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [SoundCloud](https://soundcloud.com/xwhysi)
+- [Instagram](https://instagram.com/xwhysi)
+- Email: hello@xwhysi.com
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*All sounds belong to the void.*

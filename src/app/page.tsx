@@ -321,6 +321,15 @@ export default function Home() {
               <span className="text-violet-500">→</span>
               <span className="glitch-hover text-zinc-400">Amsterdam</span>
             </div>
+
+            {/* Interests subsection */}
+            <div className="mt-24 ml-[10%] max-w-lg">
+              <h3 className="text-sm tracking-[0.3em] text-zinc-600 uppercase mb-6">Beyond Sound</h3>
+              <p className="text-lg font-extralight leading-relaxed text-zinc-400">
+                Exploring aerial perspectives through FPV drones. Capturing the intersection of
+                movement and stillness from above. The same tension that lives in the music.
+              </p>
+            </div>
           </div>
         </section>
 

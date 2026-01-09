@@ -260,7 +260,7 @@ export default function Home() {
                 scrolling="no"
                 frameBorder="no"
                 allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/xwhysi&color=%238b5cf6&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/drealization&color=%238b5cf6&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
                 className="rounded-xl opacity-90 hover:opacity-100 transition-opacity"
               />
             </div>
@@ -268,7 +268,7 @@ export default function Home() {
             {/* Links - scattered */}
             <div className="flex flex-wrap gap-4 ml-[15%]">
               <a
-                href="https://soundcloud.com/xwhysi"
+                href="https://soundcloud.com/drealization"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 border border-zinc-800 rounded-full hover:border-violet-500 hover:bg-violet-500/10 transition-all glitch-hover text-sm tracking-wider"
@@ -347,7 +347,7 @@ export default function Home() {
                 Instagram
               </a>
               <a
-                href="https://soundcloud.com/xwhysi"
+                href="https://soundcloud.com/drealization"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-3xl md:text-4xl font-extralight glitch-hover hover:text-violet-400 transition-colors"

@@ -62,7 +62,7 @@ xwhysi/
 
 ## Connect
 
-- [SoundCloud](https://soundcloud.com/xwhysi)
+- [SoundCloud](https://soundcloud.com/drealization)
 - [Instagram](https://instagram.com/xwhysi)
 - Email: hello@xwhysi.com
 

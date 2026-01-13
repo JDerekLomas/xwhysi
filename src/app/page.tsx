@@ -348,7 +348,7 @@ export default function Home() {
             {/* Links - large and spaced */}
             <div className="flex flex-col items-center gap-6">
               <a
-                href="https://instagram.com/xwhysi"
+                href="https://instagram.com/dreal1zation_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-3xl md:text-4xl font-extralight glitch-hover hover:text-violet-400 transition-colors"

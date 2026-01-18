@@ -35,8 +35,6 @@ const VIDEOS = [
   { url: "/videos/video-30.mp4", label: "Alex Grey Vision" },
 ];
 
-const MARQUEE_TEXT = "XWHYSI • AMSTERDAM • EXPERIMENTAL • SONIC ARCHITECT • PITTSBURGH • SAN DIEGO • ";
-
 declare global {
   interface Window {
     SC?: {
@@ -184,13 +182,6 @@ export default function Home() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen distort-wave">
-
-        {/* Marquee Banner */}
-        <div className="marquee py-2 bg-black/40 backdrop-blur-sm text-xs tracking-[0.3em] text-zinc-500 uppercase">
-          <div className="marquee-content">
-            {MARQUEE_TEXT}{MARQUEE_TEXT}{MARQUEE_TEXT}{MARQUEE_TEXT}
-          </div>
-        </div>
 
         {/* Hero Section */}
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 psychedelic-bg">
@@ -388,12 +379,6 @@ export default function Home() {
           </div>
         </footer>
 
-        {/* Marquee Banner - bottom */}
-        <div className="marquee py-2 bg-black/40 backdrop-blur-sm text-xs tracking-[0.3em] text-zinc-500 uppercase">
-          <div className="marquee-content" style={{animationDirection: 'reverse'}}>
-            {MARQUEE_TEXT}{MARQUEE_TEXT}{MARQUEE_TEXT}{MARQUEE_TEXT}
-          </div>
-        </div>
       </div>
     </main>
   );

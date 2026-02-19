@@ -492,3 +492,61 @@ a:hover {
   animation-duration: 0.1s !important;
   opacity: 1 !important;
 }
+
+.glitch-text {
+  position: relative;
+  font-style: italic;
+  animation: glitchText 4s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch-text::before {
+  color: #ff0080;
+  animation: glitchTextBefore 4s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.glitch-text::after {
+  color: #00ffff;
+  animation: glitchTextAfter 4s infinite;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchText {
+  0%, 92%, 100% { transform: translate(0); opacity: 1; }
+  93% { transform: translate(-2px, 1px) skewX(3deg); }
+  94% { transform: translate(2px, -1px) skewX(-3deg); }
+  95% { transform: translate(-1px, 2px); }
+  96% { transform: translate(1px, -2px); opacity: 0.8; }
+  97% { transform: translate(0); opacity: 1; }
+}
+
+@keyframes glitchTextBefore {
+  0%, 90%, 100% { transform: translate(0); }
+  91% { transform: translate(-4px, -1px); }
+  92% { transform: translate(4px, 1px); }
+  93% { transform: translate(-2px, 2px); }
+  94% { transform: translate(2px, -2px); }
+  95% { transform: translate(-3px, 0); }
+  96% { transform: translate(3px, 0); }
+}
+
+@keyframes glitchTextAfter {
+  0%, 90%, 100% { transform: translate(0); }
+  91% { transform: translate(4px, 1px); }
+  92% { transform: translate(-4px, -1px); }
+  93% { transform: translate(2px, -2px); }
+  94% { transform: translate(-2px, 2px); }
+  95% { transform: translate(3px, 0); }
+  96% { transform: translate(-3px, 0); }
+}

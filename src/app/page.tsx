@@ -49,7 +49,6 @@ declare global {
 export default function Home() {
   const [currentVideo, setCurrentVideo] = useState(0);
   const [mounted, setMounted] = useState(false);
-  const [tripping, setTripping] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -65,20 +64,7 @@ export default function Home() {
     }
   };
 
-  const spaceOut = () => {
-    setTripping(true);
-    startMusic();
-    // Rapid video switching
-    let count = 0;
-    const tripInterval = setInterval(() => {
-      setCurrentVideo(Math.floor(Math.random() * VIDEOS.length));
-      count++;
-      if (count > 20) {
-        clearInterval(tripInterval);
-        setTripping(false);
-      }
-    }, 200);
-  };
+
 
   useEffect(() => {
     setMounted(true);
@@ -86,10 +72,8 @@ export default function Home() {
     setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
 
     const interval = setInterval(() => {
-      if (!tripping) {
-        setVideoLoaded(false);
-        setCurrentVideo((prev) => (prev + 1) % VIDEOS.length);
-      }
+      setVideoLoaded(false);
+      setCurrentVideo((prev) => (prev + 1) % VIDEOS.length);
     }, 10000);
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -121,13 +105,13 @@ export default function Home() {
       clearInterval(interval);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [tripping, musicStarted, currentVideo]);
+  }, [musicStarted, currentVideo]);
 
   if (!mounted) return null;
 
   return (
     <main
-      className={`relative min-h-screen cursor-glow ${tripping ? 'tripping' : ''}`}
+      className="relative min-h-screen cursor-glow"
       onClick={startMusic}
       onTouchStart={startMusic}
     >
@@ -145,7 +129,7 @@ export default function Home() {
       {/* Video Background */}
       <video
         key={currentVideo}
-        className={`video-bg ${tripping ? 'tripping-video' : 'glitch-constant'} transition-opacity duration-300 ${
+        className={`video-bg glitch-constant transition-opacity duration-300 ${
           videoLoaded ? 'opacity-50' : 'opacity-0'
         }`}
         autoPlay
@@ -168,17 +152,7 @@ export default function Home() {
         <span className="ml-3 text-zinc-600 hidden md:inline">← → SPACE</span>
       </div>
 
-      {/* Space Out Button */}
-      <button
-        onClick={(e) => { e.stopPropagation(); spaceOut(); }}
-        className={`fixed top-4 right-4 z-50 px-4 py-2 rounded-full text-xs font-bold tracking-wider transition-all ${
-          tripping
-            ? 'bg-pink-500 text-white animate-pulse scale-110'
-            : 'bg-violet-600/80 hover:bg-violet-500 text-white hover:scale-105'
-        }`}
-      >
-        {tripping ? '◉ TRIPPING ◉' : '✧ SPACE OUT ✧'}
-      </button>
+
 
       {/* Content */}
       <div className="relative z-10 min-h-screen distort-wave">
@@ -222,13 +196,7 @@ export default function Home() {
             </nav>
           </div>
 
-          {/* Floating coordinates */}
-          <div className="absolute bottom-10 left-10 text-xs font-mono text-zinc-600 warp-text">
-            52.3676°N
-          </div>
-          <div className="absolute bottom-10 right-10 text-xs font-mono text-zinc-600 warp-text">
-            4.9041°E
-          </div>
+
         </section>
 
         {/* Listen Section - Flows from hero */}

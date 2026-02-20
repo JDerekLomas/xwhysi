@@ -181,10 +181,11 @@ export default function Home() {
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="text-center max-w-4xl">
             <h1
-              className="text-[10rem] md:text-[16rem] font-black tracking-tighter leading-none transition-colors duration-500"
+              className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter leading-tight transition-colors duration-500 glitch-title"
               style={{ color: textColor }}
+              data-text="dreal1zation_"
             >
-              Dreal1zation_
+              dreal1zation_
             </h1>
 
             <p

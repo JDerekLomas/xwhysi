@@ -49,10 +49,14 @@ declare global {
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentVideo, setCurrentVideo] = useState(0);
+  const [loopCount, setLoopCount] = useState(0);
   const [invert, setInvert] = useState(false);
   const [blur, setBlur] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const LOOPS_PER_VIDEO = 10;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,6 +93,15 @@ export default function Home() {
     }
   };
 
+  const handleVideoEnd = () => {
+    if (loopCount < LOOPS_PER_VIDEO - 1) {
+      setLoopCount((prev) => prev + 1);
+    } else {
+      setLoopCount(0);
+      setCurrentVideo((prev) => (prev + 1) % VIDEOS.length);
+    }
+  };
+
   const bgColor = `rgb(${Math.round(255 * (1 - scrollProgress))}, ${Math.round(255 * (1 - scrollProgress))}, ${Math.round(255 * (1 - scrollProgress))})`;
   const textColor = scrollProgress < 0.3 ? "#0a0a0a" : "#ffffff";
   const isDark = scrollProgress >= 0.4;
@@ -114,11 +127,12 @@ export default function Home() {
       />
 
       <video
+        ref={videoRef}
         key={currentVideo}
         autoPlay
-        loop
         muted
         playsInline
+        onEnded={handleVideoEnd}
         className="fixed inset-0 w-full h-full object-cover"
         style={{ filter, opacity: 0.6 }}
       >
@@ -132,6 +146,8 @@ export default function Home() {
         <span className="text-violet-400">{currentVideo + 1}/{VIDEOS.length}</span>
         <span className="mx-2 opacity-50">•</span>
         <span>{video.label}</span>
+        <span className="mx-2 opacity-50">•</span>
+        <span className="text-violet-400">{loopCount + 1}/{LOOPS_PER_VIDEO}</span>
       </div>
 
       <div className="fixed top-4 right-4 z-50 flex gap-2">
@@ -168,7 +184,7 @@ export default function Home() {
               className="text-[10rem] md:text-[16rem] font-black tracking-tighter leading-none transition-colors duration-500"
               style={{ color: textColor }}
             >
-              XWHYSI
+              Dreal1zation_
             </h1>
 
             <p
@@ -310,13 +326,7 @@ export default function Home() {
                 Creating sonic landscapes between organic and artificial.
               </p>
 
-              <p
-                className="text-lg font-extralight leading-relaxed ml-[15%] max-w-md transition-colors duration-500"
-                style={{ color: textColor, opacity: isDark ? 0.6 : 0.5 }}
-              >
-                Influenced by the uncanny valleys of Aphex Twin. The nature-technology fusion of Björk.
-                Music that breathes but you&apos;re not sure if it&apos;s alive.
-              </p>
+
             </div>
 
             <div
@@ -407,7 +417,7 @@ export default function Home() {
             className="text-xs tracking-[0.2em] transition-colors duration-500"
             style={{ color: textColor, opacity: 0.4 }}
           >
-            © {new Date().getFullYear()} XWHYSI — ALL SOUNDS BELONG TO THE VOID
+            © {new Date().getFullYear()} Dreal1zation_ — ALL SOUNDS BELONG TO THE VOID
           </p>
         </footer>
       </div>

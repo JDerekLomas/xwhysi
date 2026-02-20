@@ -161,7 +161,7 @@ export default function Xwhysi3() {
               className="text-[6rem] md:text-[14rem] font-black tracking-tighter leading-none transition-colors duration-500"
               style={{ color: textColor }}
             >
-              XWHYSI
+              dreal1zation_
             </h1>
             <p
               className="text-lg md:text-xl tracking-[0.3em] uppercase mt-4 transition-colors duration-500"

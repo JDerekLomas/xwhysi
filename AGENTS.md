@@ -1,4 +1,4 @@
-# XWHYSI Project Guidelines
+# Dreal1zation_ Project Guidelines
 
 ## Development Workflow
 

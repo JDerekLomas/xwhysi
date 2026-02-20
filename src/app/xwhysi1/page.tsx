@@ -122,7 +122,7 @@ export default function Home() {
         }`}
       >
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-6xl md:text-8xl font-black text-white/10 animate-pulse">XWHYSI</div>
+          <div className="text-6xl md:text-8xl font-black text-white/10 animate-pulse">dreal1zation_</div>
         </div>
       </div>
 
@@ -162,9 +162,9 @@ export default function Home() {
           <div className="text-center max-w-4xl">
             <h1
               className="fade-in text-[12rem] md:text-[18rem] font-black tracking-tighter mb-4 pulse-glow glitch-heavy rgb-split leading-none"
-              data-text="XWHYSI"
+              data-text="dreal1zation_"
             >
-              XWHYSI
+              dreal1zation_
             </h1>
 
             <p className="fade-in fade-in-delay-1 text-xl md:text-2xl text-zinc-400 mb-8 glitch-text" data-text="i don't know what to say">
@@ -343,7 +343,7 @@ export default function Home() {
         {/* Footer - minimal */}
         <footer className="px-6 py-16 text-center">
           <div className="text-xs text-zinc-700 tracking-[0.2em] space-y-2">
-            <p>© {new Date().getFullYear()} XWHYSI</p>
+            <p>© {new Date().getFullYear()} dreal1zation_</p>
             <p className="font-mono glitch-hover">
               ALL SOUNDS BELONG TO THE VOID
             </p>

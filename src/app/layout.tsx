@@ -16,29 +16,29 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "XWHYSI | Experimental Electronic Music",
-  description: "XWHYSI - Experimental electronic music from Amsterdam. Sonic landscapes between organic and artificial. Pittsburgh → San Diego → Amsterdam.",
-  keywords: ["XWHYSI", "experimental music", "electronic music", "Amsterdam music", "experimental electronic", "ambient", "glitch", "producer", "Milo Lomas", "SoundCloud artist"],
-  authors: [{ name: "XWHYSI" }],
-  creator: "XWHYSI",
-  publisher: "XWHYSI",
+  title: "Dreal1zation_ | Experimental Electronic Music",
+  description: "Dreal1zation_ - Experimental electronic music from Amsterdam. Sonic landscapes between organic and artificial. Pittsburgh → San Diego → Amsterdam.",
+  keywords: ["Dreal1zation", "experimental music", "electronic music", "Amsterdam music", "experimental electronic", "ambient", "glitch", "producer", "Milo Lomas", "SoundCloud artist"],
+  authors: [{ name: "Dreal1zation_" }],
+  creator: "Dreal1zation_",
+  publisher: "Dreal1zation_",
   metadataBase: new URL("https://xwhysi.com"),
   alternates: {
     canonical: "https://xwhysi.com",
   },
   openGraph: {
-    title: "XWHYSI | Experimental Electronic Music",
+    title: "Dreal1zation_ | Experimental Electronic Music",
     description: "Sonic landscapes between organic and artificial. Pittsburgh → San Diego → Amsterdam.",
     url: "https://xwhysi.com",
-    siteName: "XWHYSI",
+    siteName: "Dreal1zation_",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "XWHYSI | Experimental Electronic Music",
+    title: "Dreal1zation_ | Experimental Electronic Music",
     description: "Sonic landscapes between organic and artificial. Pittsburgh → San Diego → Amsterdam.",
-    creator: "@xwhysi",
+    creator: "@dreal1zation_",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MusicGroup",
-  name: "XWHYSI",
+  name: "Dreal1zation_",
   alternateName: "Milo Lomas",
   description: "Experimental electronic music from Amsterdam. Sonic landscapes between organic and artificial.",
   url: "https://xwhysi.com",
@@ -74,8 +74,8 @@ const jsonLd = {
     name: "Amsterdam, Netherlands",
   },
   sameAs: [
-    "https://soundcloud.com/xwhysi",
-    "https://instagram.com/xwhysi",
+    "https://soundcloud.com/drealization",
+    "https://instagram.com/dreal1zation_",
   ],
 };
 

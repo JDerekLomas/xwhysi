@@ -16,8 +16,8 @@ def main():
 
     print("Loading dependencies...")
     import torch
-    from diffusers import AutoencoderKLWan, WanPipeline
-    from diffusers.utils import export_to_video
+    from diffusers import WanPipeline
+    from diffusers.utils.export_utils import export_to_video
 
     model_id = "Wan-AI/Wan2.1-T2V-14B-Diffusers" if args.model == "14b" else "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
 
@@ -26,9 +26,11 @@ def main():
     pipe = WanPipeline.from_pretrained(
         model_id,
         torch_dtype=torch.bfloat16,
+        variant="fp16",
     )
     
     pipe.to("cuda")
+    pipe.enable_model_cpu_offload()
 
     print(f"Generating video: {args.prompt}")
     print(f"Resolution: {args.width}x{args.height}, Frames: {args.num_frames}")
@@ -43,7 +45,8 @@ def main():
     )
 
     print("Saving video...")
-    export_to_video(result.frames[0], args.output, fps=15)
+    frames = result[0]
+    export_to_video(frames, args.output, fps=15)
     print(f"Saved to: {args.output}")
 
 if __name__ == "__main__":

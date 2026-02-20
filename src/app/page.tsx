@@ -85,12 +85,12 @@ export default function Home() {
         muted
         loop
         playsInline
-        className="fixed inset-0 w-full h-full object-cover vhs-video"
+        className="fixed inset-0 w-full h-full object-cover vhs-video pointer-events-none"
       >
         <source src={VIDEOS[currentVideo].url} type="video/mp4" />
       </video>
 
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-10">
         <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
           <div className="text-center max-w-4xl">
             <h1

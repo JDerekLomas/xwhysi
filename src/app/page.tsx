@@ -73,6 +73,7 @@ export default function Home() {
       className="min-h-screen bg-black text-white cursor-crosshair vhs-container"
       onClick={startMusic}
     >
+      <div className="vhs-intro" />
       <div className="vhs-scanlines" />
       <div className="vhs-noise" />
       <div className="vhs-tracking" />
@@ -111,7 +112,7 @@ export default function Home() {
 
             <a
               href="#listen"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-red-900/80 hover:bg-red-800 rounded text-xl font-bold tracking-wider transition-all hover:scale-105 vhs-flicker"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-red-900/80 hover:bg-red-800 rounded text-xl font-bold tracking-wider transition-all hover:scale-105"
             >
               PLAY MUSIC
             </a>
@@ -245,7 +246,7 @@ export default function Home() {
         </section>
 
         <footer className="px-6 py-16 text-center">
-          <p className="text-xs tracking-[0.2em] text-zinc-600 vhs-flicker">
+          <p className="text-xs tracking-[0.2em] text-zinc-600">
             © {new Date().getFullYear()} dreal1zation_ — ALL SOUNDS BELONG TO THE VOID
           </p>
         </footer>
